@@ -31,3 +31,6 @@ import "./audio-zone";
 import "./audio-zone-source";
 import "./troika-text";
 import "./frustrum";
+
+import { registerCustomComponents } from "../../strata/components/hubs";
+registerCustomComponents();

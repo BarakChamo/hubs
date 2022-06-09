@@ -5,6 +5,7 @@ import { TYPE, SHAPE, FIT } from "three-ammo/constants";
 const COLLISION_LAYERS = require("./constants").COLLISION_LAYERS;
 import { AudioType, DistanceModelType, SourceType } from "./components/audio-params";
 import { updateAudioSettings } from "./update-audio-settings";
+import { registerCustomGLTFComponents } from "../strata/components/hubs";
 
 function registerRootSceneComponent(componentName) {
   AFRAME.GLTFModelPlus.registerComponent(componentName, componentName, (el, componentName, componentData) => {
@@ -617,3 +618,5 @@ AFRAME.GLTFModelPlus.registerComponent("reflection-probe", "reflection-probe", (
 
   el.setAttribute(componentName, componentData);
 });
+
+registerCustomGLTFComponents();
