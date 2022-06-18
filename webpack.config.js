@@ -14,6 +14,8 @@ const packageLock = require("./package-lock.json");
 const request = require("request");
 const internalIp = require("internal-ip");
 
+const babelConf = JSON.parse(fs.readFileSync("./.babelrc", "utf-8"));
+
 function createHTTPSConfig() {
   // Generate certs for the local webpack-dev-server.
   if (fs.existsSync(path.join(__dirname, "certs"))) {
@@ -265,6 +267,10 @@ module.exports = async (env, argv) => {
   }
 
   return {
+    stats: "minimal",
+    resolve: {
+      symlinks: false
+    },
     node: {
       // need to specify this manually because some random lodash code will try to access
       // Buffer on the global object if it exists, so webpack will polyfill on its behalf
@@ -424,10 +430,11 @@ module.exports = async (env, argv) => {
         },
         {
           test: /\.js$/,
-          include: [path.resolve(__dirname, "src")],
+          include: [path.resolve(__dirname, "src"), path.resolve(__dirname, "strata")],
           // Exclude JS assets in node_modules because they are already transformed and often big.
           exclude: [path.resolve(__dirname, "node_modules")],
-          loader: "babel-loader"
+          loader: "babel-loader",
+          options: babelConf
         },
         {
           test: /\.(scss|css)$/,
