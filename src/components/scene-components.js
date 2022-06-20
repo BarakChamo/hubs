@@ -31,6 +31,8 @@ import "./audio-zone";
 import "./audio-zone-source";
 import "./troika-text";
 import "./frustrum";
+import "./inject-main-camera-here";
 
+// register custom components
 import { registerCustomComponents } from "../../strata/components/hubs";
 registerCustomComponents();
