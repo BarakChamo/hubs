@@ -2,4 +2,4 @@ import BaseCommonComponent from "./strata/components/base/hubs.common.js";
 
 export default BaseCommonComponent;
 
-module.exports = THREE;
+export const THREE = window.THREE;
