@@ -1,7 +1,7 @@
 import { createReadStream, readFileSync, existsSync, unlinkSync } from "fs";
 import { exec } from "child_process";
 import rmdir from "rimraf";
-// import ncp from "ncp";
+// import { copy } from "ncp";
 import { copy } from "fs-extra";
 import tar from "tar";
 import ora from "ora";
@@ -89,6 +89,8 @@ const getTs = (() => {
       resolve();
     });
   });
+
+  await new Promise(res => setTimeout(res, 5000));
 
   await new Promise(res => {
     copy("./admin/dist", "./dist", err => {
