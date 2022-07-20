@@ -189,6 +189,8 @@ async function fetchAppConfigAndEnvironmentVars() {
   process.env.THUMBNAIL_SERVER = thumbnail_server;
   process.env.NON_CORS_PROXY_DOMAINS = `${localIp},hubs.local,localhost`;
 
+  if (typeof appConfig.theme.themes === "string") appConfig.theme.themes = JSON.parse(appConfig.theme.themes);
+
   return appConfig;
 }
 

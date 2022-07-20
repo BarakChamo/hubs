@@ -90,7 +90,7 @@ const getTs = (() => {
     });
   });
 
-  await new Promise(res => setTimeout(res, 5000));
+  await new Promise(res => setTimeout(res, 10000));
 
   await new Promise(res => {
     copy("./admin/dist", "./dist", err => {
