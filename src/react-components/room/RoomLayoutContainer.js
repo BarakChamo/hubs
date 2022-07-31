@@ -8,7 +8,7 @@ export function RoomLayoutContainer({ store, scene, ...rest }) {
 
   useResizeViewport(viewportRef, store, scene);
 
-  return <RoomLayout viewportRef={viewportRef} {...rest} />;
+  return <RoomLayout viewportRef={viewportRef} scene={scene} {...rest} />;
 }
 
 RoomLayoutContainer.propTypes = {

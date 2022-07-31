@@ -381,9 +381,13 @@ AFRAME.GLTFModelPlus.registerComponent(
 
     let enterComponentMapping, leaveComponentMapping, targetEntity;
 
+    console.log(el, "TRIGGER VOLLLLL");
+
     try {
       enterComponentMapping = getSanitizedComponentMapping(enterComponent, enterProperty, publicComponents);
       leaveComponentMapping = getSanitizedComponentMapping(leaveComponent, leaveProperty, publicComponents);
+
+      console.log(target, indexToEntityMap, componentData);
 
       // indexToEntityMap should be considered depredcated. These references are now resovled by the GLTFHubsComponentExtension
       if (typeof target === "number") {

@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import classNames from "classnames";
 import styles from "./RoomLayout.scss";
 import { Toolbar } from "./Toolbar";
+import SpaceIndicator from "../other/SpaceIndicator";
 
 export function RoomLayout({
   className,
@@ -14,6 +15,7 @@ export function RoomLayout({
   toolbarRight,
   toolbarClassName,
   modal,
+  scene,
   viewport,
   objectFocused,
   streaming,
@@ -22,6 +24,7 @@ export function RoomLayout({
 }) {
   return (
     <div className={classNames(styles.roomLayout, { [styles.objectFocused]: objectFocused }, className)} {...rest}>
+      <SpaceIndicator scene={scene} />
       {sidebar && <div className={classNames(styles.sidebar, sidebarClassName)}>{sidebar}</div>}
       <div className={classNames(styles.modalContainer, styles.viewport)}>{modal}</div>
       {(toolbarLeft || toolbarCenter || toolbarRight) && (
@@ -50,6 +53,7 @@ RoomLayout.propTypes = {
   toolbarLeft: PropTypes.node,
   toolbarCenter: PropTypes.node,
   toolbarRight: PropTypes.node,
+  scene: PropTypes.object,
   toolbarClassName: PropTypes.string,
   modal: PropTypes.node,
   viewport: PropTypes.node,

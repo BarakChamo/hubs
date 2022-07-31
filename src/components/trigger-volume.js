@@ -35,7 +35,6 @@ AFRAME.registerComponent("trigger-volume", {
     if (!this.data.target) return;
 
     const colliders = this.data.colliders;
-
     for (let i = 0; i < colliders.length; i++) {
       const collider = colliders[i];
       const object3D = collider.object3D;
@@ -45,8 +44,10 @@ AFRAME.registerComponent("trigger-volume", {
       const collidingLastFrame = this.collidingLastFrame[object3D.id];
 
       if (isColliding && !collidingLastFrame) {
+        this.el.sceneEl.emit("trigger:enter");
         this.data.target.setAttribute(this.data.enterComponent, this.data.enterProperty, this.data.enterValue);
       } else if (!isColliding && collidingLastFrame) {
+        this.el.sceneEl.emit("trigger:leave");
         this.data.target.setAttribute(this.data.leaveComponent, this.data.leaveProperty, this.data.leaveValue);
       }
 

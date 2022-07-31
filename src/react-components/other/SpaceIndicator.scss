@@ -1,0 +1,31 @@
+:local(.space-indicator) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 1em;
+ opacity: 0;
+  transition: all 0.25s;
+  span {
+    font-size: 2em;
+    display: inline-block;
+    background-color: rgb(85, 146, 112);
+    border-radius: 5px;
+    padding: 0.1em 0.2em;
+    letter-spacing: 0.05em;
+  }
+
+  span:first-child {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  
+  
+  span:last-child {
+    border-top-left-radius: 0;
+  }
+}
+
+:local(.visible) {
+  opacity:  1;
+  font-size: 1.1em;
+}
