@@ -1,9 +1,9 @@
-import React from "react";
-import PropTypes from "prop-types";
-import classNames from "classnames";
-import styles from "./RoomLayout.scss";
-import { Toolbar } from "./Toolbar";
-import SpaceIndicator from "../other/SpaceIndicator";
+import React from 'react'
+import PropTypes from 'prop-types'
+import classNames from 'classnames'
+import styles from './RoomLayout.scss'
+import { Toolbar } from './Toolbar'
+import RoomOverlay from '../../../strata/ui/room-overlay'
 
 export function RoomLayout({
   className,
@@ -24,7 +24,7 @@ export function RoomLayout({
 }) {
   return (
     <div className={classNames(styles.roomLayout, { [styles.objectFocused]: objectFocused }, className)} {...rest}>
-      <SpaceIndicator scene={scene} />
+      <RoomOverlay scene={scene} />
       {sidebar && <div className={classNames(styles.sidebar, sidebarClassName)}>{sidebar}</div>}
       <div className={classNames(styles.modalContainer, styles.viewport)}>{modal}</div>
       {(toolbarLeft || toolbarCenter || toolbarRight) && (
@@ -42,7 +42,7 @@ export function RoomLayout({
         {viewport}
       </div>
     </div>
-  );
+  )
 }
 
 RoomLayout.propTypes = {
@@ -60,4 +60,4 @@ RoomLayout.propTypes = {
   objectFocused: PropTypes.bool,
   streaming: PropTypes.bool,
   viewportRef: PropTypes.any
-};
+}
