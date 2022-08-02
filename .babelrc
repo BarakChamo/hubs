@@ -4,9 +4,7 @@
     [
       "@babel/env",
       {
-        "exclude": [
-          "transform-regenerator"
-        ],
+        "exclude": ["transform-regenerator"],
         "targets": {
           "browsers": [
             "last 2 major versions",
@@ -28,7 +26,7 @@
   "plugins": [
     "react-intl",
     "transform-react-jsx-img-import",
-    ["@babel/proposal-class-properties", { "loose": true }],
+    "@babel/proposal-class-properties",
     "@babel/proposal-object-rest-spread",
     "@babel/plugin-transform-async-to-generator",
     "@babel/plugin-proposal-optional-chaining"
