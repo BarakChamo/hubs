@@ -1,7 +1,6 @@
 import { createReadStream, readFileSync, existsSync, unlinkSync } from 'fs'
 import { exec } from 'child_process'
 import rmdir from 'rimraf'
-// import { copy } from "ncp";
 import { copy } from 'fs-extra'
 import tar from 'tar'
 import ora from 'ora'
@@ -97,11 +96,9 @@ const getTs = (() => {
         console.error(err)
         process.exit(1)
       }
-
       res()
     })
   })
-
   step.text = 'Preparing Deploy.'
 
   // Wait for copy flush, kind of a hack but seems like its still necessary
