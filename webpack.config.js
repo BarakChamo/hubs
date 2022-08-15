@@ -526,7 +526,23 @@ module.exports = async (env, argv) => {
         },
         {
           test: /\.(glsl|frag|vert)$/,
+          include: [path.join(__dirname, 'src')],
+          exclude: [/node_modules/, path.join(__dirname, 'strata')],
           use: { loader: 'raw-loader' }
+        },
+        {
+          test: /\.(glsl|vs|fs|vert|frag)$/,
+          include: path.join(__dirname, 'strata'),
+          exclude: [/node_modules/, path.join(__dirname, 'src')],
+          use: [
+            'raw-loader',
+            {
+              loader: 'glslify-loader',
+              options: {
+                transform: [['glslify-hex', 'glslify-import']]
+              }
+            }
+          ]
         }
       ]
     },
