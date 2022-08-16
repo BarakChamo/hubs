@@ -539,7 +539,7 @@ module.exports = async (env, argv) => {
             {
               loader: 'glslify-loader',
               options: {
-                transform: [['glslify-hex', 'glslify-import']]
+                transform: ['glslify-hex', 'glslify-import']
               }
             }
           ]
